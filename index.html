@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Modern To-Do App</title>
+    <link rel="stylesheet" href="To-do list.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">✓</div>
+                <h1>TaskFlow</h1>
+            </div>
+            
+            <div class="user-greeting">
+                <div class="avatar">SW</div>
+                <div class="greeting-text">
+                    <span class="hello">Hello!</span>
+                    <span class="username">Shahzaib Waheed</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-filter="all">
+                    <span>📋</span> All Tasks
+                    <span class="nav-count" id="nav-all">0</span>
+                </button>
+                <button class="nav-btn" data-filter="active">
+                    <span>🔄</span> Active
+                    <span class="nav-count" id="nav-active">0</span>
+                </button>
+                <button class="nav-btn" data-filter="completed">
+                    <span>✅</span> Completed
+                    <span class="nav-count" id="nav-completed">0</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="theme-switch">
+                    <span class="theme-icon">🌙</span>
+                    <span class="theme-text">Dark Mode</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <h2 id="filter-title">All Tasks</h2>
+                <div class="header-actions">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-task" placeholder="Search tasks...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Task Card -->
+            <div class="add-task-card">
+                <div class="task-input-row">
+                    <input type="text" id="input-box" placeholder="Write a new task...">
+                    <button id="add-btn">+ Add Task</button>
+                </div>
+                
+                <div class="task-options-row">
+                    <div class="option-group">
+                        <label>📂 Category</label>
+                        <div class="category-pills">
+                            <button type="button" class="pill" data-category="personal">👤 Personal</button>
+                            <button type="button" class="pill" data-category="work">💼 Work</button>
+                            <button type="button" class="pill" data-category="shopping">🛒 Shopping</button>
+                            <button type="button" class="pill" data-category="health">🏃 Health</button>
+                            <button type="button" class="pill" data-category="education">📚 Education</button>
+                        </div>
+                        <input type="hidden" id="category-select" value="personal">
+                    </div>
+                    
+                    <div class="option-group">
+                        <label>⚡ Priority</label>
+                        <div class="priority-buttons">
+                            <button type="button" class="priority-pill low" data-priority="low">Low</button>
+                            <button type="button" class="priority-pill medium" data-priority="medium">Medium</button>
+                            <button type="button" class="priority-pill high" data-priority="high">High</button>
+                        </div>
+                        <input type="hidden" id="priority-select" value="medium">
+                    </div>
+                    
+                    <div class="option-group">
+                        <label>📅 Due Date</label>
+                        <input type="date" id="due-date" class="date-picker">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Dashboard -->
+            <div class="stats-dashboard">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-tasks">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completed-tasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="pending-tasks">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completion-rate">0%</span>
+                        <span class="stat-label">Completion</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks Container -->
+            <div class="tasks-container">
+                <div class="tasks-header">
+                    <span>Your Tasks</span>
+                    <div class="bulk-actions">
+                        <button id="clear-completed" class="bulk-btn">Clear Completed</button>
+                        <button id="delete-all" class="bulk-btn danger">Delete All</button>
+                    </div>
+                </div>
+                <ul id="list-container" class="tasks-list"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="To-do list.js"></script>
+</body>
+</html>
