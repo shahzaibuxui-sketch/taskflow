@@ -128,7 +128,7 @@ function renderTasks() {
     document.getElementById("nav-completed").textContent = tasks.filter(t => t.completed).length;
     
     if (filteredTasks.length === 0) {
-        listContainer.innerHTML = '<div class="empty-state">✨ No tasks here. Add a new task to get started!</div>';
+        listContainer.innerHTML = '<div class="empty-state"> No tasks here. Add a new task to get started!</div>';
         updateStats();
         return;
     }
